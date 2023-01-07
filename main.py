@@ -1,24 +1,30 @@
 
-# Removing Directory or File using remove() and rmdir() method.
+# Removing non-empty Directory in python using shutil module rmtree() method.
 
-#  the remove() method or the rmdir() method to remove a file or directory.
 
-# Syntax : os.remove("file_name") for removing the file
-# Syntax : os.remove("dir_name") for removing the *empty* dir
+# Syntax : os.rmtres("dir_name") for removing the *empty* dir
 
 import os
+import shutil
 
-print("Before remove File : ", os.listdir())
+os.mkdir("dir_new") # creating the dir_name dir
 
-os.remove("new_test.txt")   # remove the file new_test.txt
+print("Dir and Files : ", os.listdir())
 
-print("After remove file   : ", os.listdir())
+os.chdir("C:\work\python\Python\pythonDirectoryFiles\dir_new")   # changing the current dir_name dir
 
-os.rmdir("test_new")  # remove the dir test_new
+with open("test.txt", "w") as file:   # creating the test.txt file inside the current dir
+    file.write("Hello from bridgelabz.!")
+
+os.chdir("C:\work\python\Python\pythonDirectoryFiles")  # changing the current dir to older dir
+
+print("Dir and Files   : ", os.listdir())
+
+shutil.rmtree("dir_new")  # remove the dir test_new which is non-empty dir
 
 print("After remove dir : ", os.listdir())
 
 # Output :
-# Before remove File :  ['.git', '.idea', 'main.py', 'new_test.txt', 'test_new', 'venv']
-# After remove file   :  ['.git', '.idea', 'main.py', 'test_new', 'venv']
+# Dir and Files :  ['.git', '.idea', 'dir_new', 'main.py', 'venv']
+# Dir and Files   :  ['.git', '.idea', 'dir_new', 'main.py', 'venv']
 # After remove dir :  ['.git', '.idea', 'main.py', 'venv']
