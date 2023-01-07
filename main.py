@@ -1,26 +1,24 @@
 
-# Renaming a Directory  and File using rename() method.
+# Removing Directory or File using remove() and rmdir() method.
 
-# The rename() method can rename a directory or a file.
-# For renaming any directory or file, rename() takes in two basic arguments:
-# the old name as the first argument
-# the new name as the second argument.
+#  the remove() method or the rmdir() method to remove a file or directory.
 
-# Syntax : os.rename("old_name", "new_name")
+# Syntax : os.remove("file_name") for removing the file
+# Syntax : os.remove("dir_name") for removing the *empty* dir
 
 import os
 
-print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'test.txt', 'text', 'venv']
+print("Before remove File : ", os.listdir())
 
-os.rename("text", "test_new")   # rename the dir text to test_new dir
+os.remove("new_test.txt")   # remove the file new_test.txt
 
-print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'test.txt', 'test_new', 'venv']
+print("After remove file   : ", os.listdir())
 
-with open("test.txt", "w") as file:
-    file.write("This is test for rename.")
+os.rmdir("test_new")  # remove the dir test_new
 
-os.rename("test.txt", "new_test.txt")  # rename the file test.txt to new_test.txt
+print("After remove dir : ", os.listdir())
 
-print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'new_test.txt', 'test_new', 'venv']
-
-
+# Output :
+# Before remove File :  ['.git', '.idea', 'main.py', 'new_test.txt', 'test_new', 'venv']
+# After remove file   :  ['.git', '.idea', 'main.py', 'test_new', 'venv']
+# After remove dir :  ['.git', '.idea', 'main.py', 'venv']
