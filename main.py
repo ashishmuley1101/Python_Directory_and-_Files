@@ -1,11 +1,11 @@
 
-# List Directories and Files in Python using listdir()
+# Making a New Directory in Python using mkdir() method
 
-# All files and sub-directories inside a directory can be retrieved using the listdir() method.
-# This method takes in a path and returns a list of subdirectories and files in that path.
-# If no path is specified, it returns the list of subdirectories and files from the current working directory.
+# In Python, we can make a new directory using the mkdir() method.
+# This method takes in the path of the new directory. If the full path is not specified, the new
+# directory is created in the current working directory.
 
-# Syntax : os.listdir()
+# Syntax : os.mkdir()
 
 import os
 
@@ -13,7 +13,5 @@ current_dir = os.getcwd()
 
 print(current_dir)  # Output : C:\work\python\Python\pythonDirectoryFiles
 
-print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'venv']
+os.mkdir("text")
 
-print(os.listdir("C:\\"))
-# returning all the dir and sub-dir from the drive in specified path in list data type.
