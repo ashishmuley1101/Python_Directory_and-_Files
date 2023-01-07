@@ -1,17 +1,26 @@
 
-# Making a New Directory in Python using mkdir() method
+# Renaming a Directory  and File using rename() method.
 
-# In Python, we can make a new directory using the mkdir() method.
-# This method takes in the path of the new directory. If the full path is not specified, the new
-# directory is created in the current working directory.
+# The rename() method can rename a directory or a file.
+# For renaming any directory or file, rename() takes in two basic arguments:
+# the old name as the first argument
+# the new name as the second argument.
 
-# Syntax : os.mkdir()
+# Syntax : os.rename("old_name", "new_name")
 
 import os
 
-current_dir = os.getcwd()
+print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'test.txt', 'text', 'venv']
 
-print(current_dir)  # Output : C:\work\python\Python\pythonDirectoryFiles
+os.rename("text", "test_new")   # rename the dir text to test_new dir
 
-os.mkdir("text")
+print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'test.txt', 'test_new', 'venv']
+
+with open("test.txt", "w") as file:
+    file.write("This is test for rename.")
+
+os.rename("test.txt", "new_test.txt")  # rename the file test.txt to new_test.txt
+
+print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'new_test.txt', 'test_new', 'venv']
+
 
