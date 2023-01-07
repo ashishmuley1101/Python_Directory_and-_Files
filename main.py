@@ -1,17 +1,19 @@
 
-# Changing Directory in Python
+# List Directories and Files in Python using listdir()
 
-# changing the current working directory by using the chdir() method.
-# The new path that we want to change into must be supplied as a string to this method.
-# And we can use both the forward-slash / or the backward-slash \ to separate the path elements
+# All files and sub-directories inside a directory can be retrieved using the listdir() method.
+# This method takes in a path and returns a list of subdirectories and files in that path.
+# If no path is specified, it returns the list of subdirectories and files from the current working directory.
 
-# Syntax : os.chdir("new_dir_path")
+# Syntax : os.listdir()
 
 import os
 
 current_dir = os.getcwd()
+
 print(current_dir)  # Output : C:\work\python\Python\pythonDirectoryFiles
 
-os.chdir("C:\work\python\Python")
-print(os.getcwd())  # Output : C:\work\python\Python
+print(os.listdir())  # Output : ['.git', '.idea', 'main.py', 'venv']
 
+print(os.listdir("C:\\"))
+# returning all the dir and sub-dir from the drive in specified path in list data type.
